@@ -2,7 +2,8 @@
 title: "Reproducible Research: Peer Assessment 1"
 output: 
   html_document:
-    keep_md: true
+  self_contained: yes
+  keep_md: true
 author: "Intan Dea Yutami"
 date: "October 29, 2017"
 ---
