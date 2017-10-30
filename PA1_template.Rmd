@@ -2,7 +2,6 @@
 title: "Reproducible Research: Peer Assessment 1"
 output: 
   html_document:
-    self_contained: yes
     keep_md: true
 author: "Intan Dea Yutami"
 date: "October 29, 2017"
@@ -13,7 +12,7 @@ date: "October 29, 2017"
 
 After extracting the zip file, we will get activity.csv. Then, we have to load/read the file. Below is the code chunk to read it.
 
-```{r load data}
+```{r loadData}
 if (!exists("activity")){
   activity <- read.csv("activity.csv")
 }
@@ -25,7 +24,7 @@ sum_day <- aggregate(steps ~ date, activity, sum)
 
 First, we sum all the steps taken each day. Then we plot its histogram and show its median and mean.
 
-```{r aggregated steps histogram}
+```{r aggregatedStepsHistogram}
 sum_steps_day <- aggregate(steps ~ date, activity, sum)
 hist(sum_steps_day$steps, 
      main = "Histogram of Total Steps Taken per Day",
@@ -39,7 +38,7 @@ hist(sum_steps_day$steps,
 
 Here are the following code to show the mean and median.
 
-```{r activity stats}
+```{r activityStats}
 summary(sum_steps_day$steps)
 ```
 
@@ -47,7 +46,7 @@ summary(sum_steps_day$steps)
 
 Here is the code chunk to earn average daily activity pattern. Steps across each days are averaged within the same interval. Later, a plot showing relationship between interval and averaged steps is shown.
 
-```{r daily pattern}
+```{r dailyPattern}
 daily_pattern <- aggregate(steps ~ interval, activity, mean)
 plot(daily_pattern$interval,
      daily_pattern$steps,
@@ -62,19 +61,19 @@ plot(daily_pattern$interval,
 
 The interval which step is the maximum value is:
 
-```{r daily pattern max interval}
+```{r dailyPatternMaxInterval}
 daily_pattern[which.max(daily_pattern$steps),]$interval
 ```
 
 ## Imputing Missing Values
 
 Below is total row with missing Values.
-```{r missing Value}
+```{r missinGValue}
 sum(is.na(activity$steps))
 ```
 
 Each missing values will be substituted with average steps from related interval and this new table will be assigned to a new variable.
-```{r replace missing values}
+```{r replacemissingvalues}
 imputed_activity <- 
       transform(activity, 
                  steps = ifelse(
@@ -88,7 +87,7 @@ sum_steps_imputed <- aggregate(steps ~ date, imputed_activity, sum)
 
 Next, the imputed data will be summarized in histogram, and its mean and median value will be given.
 
-```{r stats imputed}
+```{r statsimputed}
 hist(sum_steps_imputed$steps, 
      main = "Histogram of Total Steps Taken per Day after Imputed",
      xlab = "Total Steps Taken per Day",
@@ -105,7 +104,7 @@ The mean value before and after imputed is 10766, so there is no change. Meanwhi
 ## Are there differences in activity patterns between weekdays and weekends?
 
 In this step we are observing if there is any pattern difference between activities done in Weekend and Weekdays. A new column (dayType) is inserted to inform if that row was occured in weekend or weekday. After that, the total steps are averaged across interval and day type. The plot below shows pattern of averaged steps per interval for weekend and weekday.
-```{r weekend and weekday}
+```{r weekendandweekday}
 imputed_activity$date <- strptime(imputed_activity$date,"%Y-%m-%d")
 imputed_activity$dayType <- 
     factor(
