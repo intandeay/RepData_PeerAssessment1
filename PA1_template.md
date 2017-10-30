@@ -130,7 +130,7 @@ summary(sum_steps_imputed$steps)
 
 The mean value before and after imputed is 10766, so there is no change. Meanwhile, the median value is shifted from 10765 before imputed to be 10766. The impact of imputing data is more visible to median.
 
-## re there differences in activity patterns between weekdays and weekends?
+## Are there differences in activity patterns between weekdays and weekends?
 
 In this step we are observing if there is any pattern difference between activities done in Weekend and Weekdays. A new column (dayType) is inserted to inform if that row was occured in weekend or weekday. After that, the total steps are averaged across interval and day type. The plot below shows pattern of averaged steps per interval for weekend and weekday.
 
