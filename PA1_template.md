@@ -33,7 +33,7 @@ hist(sum_steps_day$steps,
 )
 ```
 
-![](PA1_template_files/figure-html/aggregatedStepsHistogram-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 Here are the following code to show the mean and median.
 
@@ -64,7 +64,7 @@ plot(daily_pattern$interval,
 )
 ```
 
-![](PA1_template_files/figure-html/dailyPattern-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 The interval which step is the maximum value is:
 
@@ -117,7 +117,7 @@ hist(sum_steps_imputed$steps,
 )
 ```
 
-![](PA1_template_files/figure-html/statsimputed-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 ```r
 summary(sum_steps_imputed$steps)
@@ -159,6 +159,6 @@ xyplot(steps ~ interval | dayType,
 )
 ```
 
-![](PA1_template_files/figure-html/weekendandweekday-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 On weekday, we can find that in interval of around 750 - 900, there is a dominant peak (around 240) and no other strong peak is found in the rest of the graphic. Meanwhile, no such strong peak is found in weekdays. Peaks are scattered around 100-200.
